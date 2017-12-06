@@ -1,0 +1,43 @@
+{
+  "name": "gspos-controller",
+  "version": "1.0.0",
+  "description": "The controller for the GSPOS home entertainment system.",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-s cphtml dev",
+    "build": "run-s cphtml prod",
+    "cphtml": "cp ./src/index.html ./dist/index.html",
+    "watch": "webpack --watch --config webpack.dev.js",
+    "devServer": "webpack-dev-server --open --config webpack.dev.js",
+    "dev": "run-p watch devServer",
+    "prod": "webpack --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregscott94/gspos-controller.git"
+  },
+  "author": "Greg Scott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregscott94/gspos-controller/issues"
+  },
+  "homepage": "https://github.com/gregscott94/gspos-controller#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "npm-run-all": "^4.1.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.5",
+    "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {
+    "grommet": "^2.0.0-alpha.5",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^3.1.3"
+  }
+}
