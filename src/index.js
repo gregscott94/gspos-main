@@ -1,10 +1,7 @@
+import 'grommet/scss/vanilla/index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends React.Component {
-  render() {
-    return <div>Yo</div>;
-  }
-}
+import Display from './Display';
 
-ReactDOM.render(<App />, document.getElementById('gspos'));
+ReactDOM.render(<Display />, document.getElementById('gspos'));
