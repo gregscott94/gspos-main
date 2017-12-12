@@ -7,8 +7,8 @@ import Box from 'grommet/components/Box';
 
 const BOXES = {
   THEATER: 1,
-  TOOLS: 2,
-  SETTINGS: 3,
+  SETTINGS: 2,
+  TOOLS: 3,
   OTHER: 4
 };
 
@@ -17,6 +17,52 @@ export default class HomeScreen extends React.Component {
     super(props);
     this.state = { activeBox: BOXES.THEATER };
   }
+
+  componentDidMount() {
+    this.props.api.sendMessage('r:home');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.api.lastCommand &&
+      this.props.api.cmdToggle !== nextProps.api.cmdToggle
+    ) {
+      this.handleCommand(nextProps.api.lastCommand);
+    }
+  }
+
+  handleCommand(cmd) {
+    if (cmd === 'up') {
+      this.setState({
+        activeBox:
+          this.state.activeBox - 2 > 0
+            ? this.state.activeBox - 2
+            : this.state.activeBox + 2
+      });
+    } else if (cmd === 'down') {
+      this.setState({
+        activeBox:
+          this.state.activeBox + 2 <= 4
+            ? this.state.activeBox + 2
+            : this.state.activeBox - 2
+      });
+    } else if (cmd === 'right') {
+      this.setState({
+        activeBox:
+          (this.state.activeBox + 1) % 2 === 0
+            ? this.state.activeBox + 1
+            : this.state.activeBox - 1
+      });
+    } else if (cmd === 'left') {
+      this.setState({
+        activeBox:
+          (this.state.activeBox - 1) % 2 !== 0
+            ? this.state.activeBox - 1
+            : this.state.activeBox + 1
+      });
+    }
+  }
+
   render() {
     const { activeBox } = this.state;
     return (
