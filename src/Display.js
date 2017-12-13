@@ -3,17 +3,19 @@ import App from 'grommet/components/App';
 
 import StartScreen from './screens/StartScreen';
 import HomeScreen from './screens/HomeScreen';
+import PopcornTime from './popcorntime';
 
 const SCREENS = {
   START: 0,
-  HOME: 1
+  HOME: 1,
+  POPCORN: 2
 };
 
 export default class Display extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeScreen: SCREENS.START,
+      activeScreen: SCREENS.POPCORN,
       lastCommand: '',
       cmdToggle: false
     };
@@ -60,7 +62,11 @@ export default class Display extends React.Component {
       lastCommand,
       cmdToggle
     };
-    const screenOptions = [<StartScreen api={api} />, <HomeScreen api={api} />];
+    const screenOptions = [
+      <StartScreen api={api} />,
+      <HomeScreen api={api} />,
+      <PopcornTime api={api} />
+    ];
     return <App>{screenOptions[activeScreen]}</App>;
   }
 }
