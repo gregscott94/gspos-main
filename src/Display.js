@@ -15,7 +15,7 @@ export default class Display extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeScreen: SCREENS.POPCORN,
+      activeScreen: SCREENS.START,
       lastCommand: '',
       cmdToggle: false
     };

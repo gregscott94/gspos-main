@@ -60,6 +60,14 @@ export default class HomeScreen extends React.Component {
             ? this.state.activeBox - 1
             : this.state.activeBox + 1
       });
+    } else if (cmd === 'select') {
+      switch (this.state.activeBox) {
+        case BOXES.THEATER:
+          this.props.api.setScreen(this.props.api.SCREENS.POPCORN);
+          break;
+        default:
+          break;
+      }
     }
   }
 
