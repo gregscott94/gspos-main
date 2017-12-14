@@ -63,7 +63,7 @@ export default class HomeScreen extends React.Component {
     } else if (cmd === 'select') {
       switch (this.state.activeBox) {
         case BOXES.THEATER:
-          this.props.api.setScreen(this.props.api.SCREENS.POPCORN);
+          this.props.api.setScreen(this.props.api.SCREENS.THEATER);
           break;
         default:
           break;

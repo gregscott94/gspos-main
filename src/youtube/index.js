@@ -3,7 +3,7 @@ import Headline from 'grommet/components/Headline';
 
 import SearchBar from '../components/SearchBar';
 
-export default class PopcornTime extends React.Component {
+export default class YouTube extends React.Component {
   render() {
     return (
       <div>
@@ -12,7 +12,7 @@ export default class PopcornTime extends React.Component {
           align="center"
           style={{ marginBottom: '20px', marginTop: '15px' }}
         >
-          Popcorn Time
+          YouTube
         </Headline>
         <SearchBar />
       </div>

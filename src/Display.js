@@ -3,12 +3,12 @@ import App from 'grommet/components/App';
 
 import StartScreen from './screens/StartScreen';
 import HomeScreen from './screens/HomeScreen';
-import PopcornTime from './popcorntime';
+import TheaterScreen from './screens/TheaterScreen';
 
 const SCREENS = {
   START: 0,
   HOME: 1,
-  POPCORN: 2
+  THEATER: 2
 };
 
 export default class Display extends React.Component {
@@ -65,8 +65,14 @@ export default class Display extends React.Component {
     const screenOptions = [
       <StartScreen api={api} />,
       <HomeScreen api={api} />,
-      <PopcornTime api={api} />
+      <TheaterScreen api={api} />
     ];
-    return <App>{screenOptions[activeScreen]}</App>;
+    return (
+      <App
+        style={activeScreen === SCREENS.THEATER ? { maxWidth: '3000px' } : {}}
+      >
+        {screenOptions[activeScreen]}
+      </App>
+    );
   }
 }

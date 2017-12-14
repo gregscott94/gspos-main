@@ -2,12 +2,12 @@ import React from 'react';
 
 export default class SearchBar extends React.Component {
   render() {
-    const componentStyle = {
+    let componentStyle = {
       background: '#f5f5f5',
       padding: '10px 20px',
       borderRadius: '2px'
     };
-    const inputStyle = {
+    let inputStyle = {
       padding: '0',
       background: '0',
       border: '0',
@@ -18,6 +18,10 @@ export default class SearchBar extends React.Component {
       textTransform: 'uppercase',
       width: '100%'
     };
+    componentStyle = Object.assign(
+      componentStyle,
+      this.props.style ? this.props.style : {}
+    );
     return (
       <div style={componentStyle}>
         <span>Start typing..</span>
